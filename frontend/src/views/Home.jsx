@@ -3,11 +3,11 @@ import { Container, Typography, Grid, Card, CardMedia, CardContent, Button } fro
 const Home = () => {
     return (
         <Container sx={{ mt: 5 }}>
-            <Typography variant="h4" component="h1" gutterBottom>
+            <Typography variant="h5" component="h1" gutterBottom>
                 Bienvenido/a al Portal de la Municipalidad de Malargüe
             </Typography>
 
-            <Typography variant="h5" component="h2" gutterBottom>
+            <Typography variant="h6" component="h2" gutterBottom>
                 Últimas Noticias sobre el Dengue
             </Typography>
 
