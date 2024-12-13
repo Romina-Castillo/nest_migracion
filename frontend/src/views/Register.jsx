@@ -8,7 +8,7 @@ const Register = () => {
 
     const onSubmit = async (data) => {
         try {
-            const response = await fetch('http://localhost:3000/register', {
+            const response = await fetch('http://localhost:3005/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ const Register = () => {
             reset();
             setErrorMessage('');
             alert('Registro exitoso. Redirigiendo al login...');
-            window.location.href = '/login'; // Redirección al login
+            window.location.href = '/'; // Redirección al /login
         } catch (error) {
             setErrorMessage(error.message);
         }
