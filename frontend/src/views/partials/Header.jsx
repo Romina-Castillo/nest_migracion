@@ -21,11 +21,13 @@ const Header = ({ user }) => {
         <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
           <MenuIcon />
         </IconButton>
-        <Button component={Link} to="/" color="inherit" aria-label="home" sx={{ mr: 95 }}>
+        <Button component={Link} to="/" color="inherit" aria-label="home" sx={{ mr: 50 }}>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             Municipalidad de Malargüe
           </Typography>
-        </Button>
+        </Button> 
+
+      
         {user ? (
           <div>
             <IconButton
@@ -59,6 +61,7 @@ const Header = ({ user }) => {
           </div>
         ) : (
           <>
+          <Button color="inherit" href="/pacientes">Pacientes</Button>
             <Button color="inherit" href="/login">Iniciar Sesión</Button>
             <Button color="inherit" href="/register">Registrarse</Button>
           </>

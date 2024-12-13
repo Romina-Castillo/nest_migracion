@@ -1,12 +1,11 @@
 import React from 'react';
 import { Container, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Box } from '@mui/material';
-import Header from './partials/_header';
-import Footer from './partials/_footer';
+
 
 const Pacientes = ({ pacientes }) => {
   return (
     <>
-      <Header />
+     
       <Container>
         <Typography variant="h4" gutterBottom>
           Lista de Pacientes
@@ -14,7 +13,7 @@ const Pacientes = ({ pacientes }) => {
         <Button variant="contained" color="success" href="/pacientes/formPaciente" sx={{ mb: 3 }}>
           Agregar Paciente
         </Button>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{ mb: 8 }}>
           <Table>
             <TableHead>
               <TableRow>
@@ -47,7 +46,7 @@ const Pacientes = ({ pacientes }) => {
           </Table>
         </TableContainer>
       </Container>
-      <Footer />
+     
     </>
   );
 };
