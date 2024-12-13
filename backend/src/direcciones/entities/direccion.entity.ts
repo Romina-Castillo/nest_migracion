@@ -1,9 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+// para definir la estructura de la tabla de direcciones
+
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity('Mdireccion')
 export class Direccion {
     @PrimaryGeneratedColumn()
-    id: number;
+    id_direccion: number;
 
     @Column()
     barrio: string;
