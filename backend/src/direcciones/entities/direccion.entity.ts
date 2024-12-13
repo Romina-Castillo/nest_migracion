@@ -14,5 +14,5 @@ export class Direccion {
     calle: string;
 
     @Column()
-    numero: string;
+    numero: number;
 }
