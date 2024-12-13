@@ -8,9 +8,24 @@ const Register = () => {
 
     const onSubmit = async (data) => {
         try {
-            // Aquí iría la lógica para registrar al usuario
+            const response = await fetch('http://localhost:3000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(errorText);
+            }
+
+            // Resetear el formulario
+            reset();
+            setErrorMessage('');
             alert('Registro exitoso. Redirigiendo al login...');
-            window.location.href = '/login'; // Redirección al login
+            window.location.href = '/'; // Redirección al /login
         } catch (error) {
             setErrorMessage(error.message);
         }
