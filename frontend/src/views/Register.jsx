@@ -1,29 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Container, Box, Typography, TextField, Button, Alert } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import { TextField, Button, Container, Typography, Box, Alert } from '@mui/material';
 
 const Register = () => {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const [errorMessage, setErrorMessage] = React.useState('');
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [errorMessage, setErrorMessage] = useState('');
 
     const onSubmit = async (data) => {
         try {
-            const response = await fetch('http://localhost:3000/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
-
-            if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error(errorText);
-            }
-
-            // Resetear el formulario
-            reset();
-            setErrorMessage('');
+            // Aquí iría la lógica para registrar al usuario
             alert('Registro exitoso. Redirigiendo al login...');
             window.location.href = '/login'; // Redirección al login
         } catch (error) {
@@ -32,8 +17,8 @@ const Register = () => {
     };
 
     return (
-        <Container maxWidth="sm">
-            <Box mt={5} p={3} boxShadow={3}>
+        <Container maxWidth="lg" sx={{ mt:15, mb:15 }}>
+            <Box p={3} boxShadow={3} sx={{ maxWidth: '600px', mx: 'auto' }}>
                 <Typography variant="h4" component="h2" gutterBottom align="center">
                     Regístrate
                 </Typography>
@@ -73,16 +58,27 @@ const Register = () => {
                         />
                     </Box>
 
-                    <Button type="submit" variant="contained" color="primary" fullWidth>
-                        Registrar
-                    </Button>
-                </form>
+                    <Box mb={2}>
+                        <TextField
+                            label="Confirmar Contraseña"
+                            type="password"
+                            fullWidth
+                            {...register('confirmar_contraseña', { required: 'Este campo es obligatorio' })}
+                            error={!!errors.confirmar_contraseña}
+                            helperText={errors.confirmar_contraseña?.message}
+                        />
+                    </Box>
 
-                <Box mt={3} textAlign="center">
-                    <Typography variant="body2">
-                        ¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>
-                    </Typography>
-                </Box>
+                    <Button type="submit" variant="contained" color="primary" fullWidth>
+                        Registrarse
+                    </Button>
+
+                    <Box mt={3} textAlign="center">
+                        <Typography variant="body2">
+                            ¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>
+                        </Typography>
+                    </Box>
+                </form>
             </Box>
         </Container>
     );

@@ -1,8 +1,9 @@
+import React from 'react';
 import { Container, Typography, Grid, Card, CardMedia, CardContent, Button } from '@mui/material';
 
 const Home = () => {
     return (
-        <Container sx={{ mt: 5 }}>
+        <Container maxWidth="lg" sx={{ mt: 8 }}>
             <Typography variant="h5" component="h1" gutterBottom>
                 Bienvenido/a al Portal de la Municipalidad de Malargüe
             </Typography>
@@ -45,16 +46,35 @@ const Home = () => {
                             component="img"
                             height="310"
                             image="/img/casos.png"
-                            alt="Casos Confirmados en la Región"
-                            sx={{ objectFit: 'cover' }}
+                            alt="Casos de Dengue"
                         />
                         <CardContent>
                             <Typography variant="h5" component="h3">
-                                Casos Confirmados en la Región
+                                Casos de Dengue
                             </Typography>
                             <Typography variant="body2" sx={{ mb: 2 }}>
-                                Conoce los últimos informes de salud sobre los casos de dengue en Malargüe y las áreas cercanas.
-                                Mantente informado sobre las acciones locales.
+                                Infórmate sobre los últimos casos de dengue reportados en nuestra comunidad.
+                            </Typography>
+                            <Button variant="contained" color="primary" href="#">
+                                Leer más
+                            </Button>
+                        </CardContent>
+                    </Card>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                    <Card>
+                        <CardMedia
+                            component="img"
+                            height="310"
+                            image="/img/noticias.jpg"
+                            alt="Casos de Dengue"
+                        />
+                        <CardContent>
+                            <Typography variant="h5" component="h3">
+                                Campaña de concientizacion
+                            </Typography>
+                            <Typography variant="body2" sx={{ mb: 2 }}>
+                                Infórmate sobre los últimos casos de dengue reportados en nuestra comunidad.
                             </Typography>
                             <Button variant="contained" color="primary" href="#">
                                 Leer más
@@ -63,28 +83,7 @@ const Home = () => {
                     </Card>
                 </Grid>
 
-                <Grid item xs={12} md={4}>
-                    <Card>
-                        <CardMedia
-                            component="img"
-                            height="300"
-                            image="/img/noticia.jpg"
-                            alt="Campaña de Concientización"
-                        />
-                        <CardContent>
-                            <Typography variant="h5" component="h3">
-                                Campaña de Concientización
-                            </Typography>
-                            <Typography variant="body2" sx={{ mb: 2 }}>
-                                La municipalidad lanza una nueva campaña para promover la eliminación de criaderos del mosquito y
-                                la prevención del dengue en la ciudad.
-                            </Typography>
-                            <Button variant="contained" color="primary" href="#">
-                                Leer más
-                            </Button>
-                        </CardContent>
-                    </Card>
-                </Grid>
+                {/* Añade más tarjetas aquí si es necesario */}
             </Grid>
         </Container>
     );

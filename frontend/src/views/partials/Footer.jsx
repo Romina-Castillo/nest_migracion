@@ -4,12 +4,12 @@ import { Facebook, Twitter } from '@mui/icons-material';
 
 const Footer = () => {
   return (
-    <Box component="footer" sx={{ bgcolor: 'primary.main', color: 'white', pt: 4, pb: 2, mt: 'auto' }}>
+    <Box component="footer" sx={{ bgcolor: 'primary.main', color: 'white', width: '110%' }}>
       <Container>
         <Grid container spacing={2}>
           {/* Dirección y contacto */}
           <Grid item xs={12} md={6}>
-            <Box display="flex" alignItems="center" mb={2}>
+            <Box display="flex" alignItems="center" mb={5}>
               <i className="fa fa-map-marker" aria-hidden="true" style={{ marginRight: '8px' }}></i>
               <Typography variant="body1" component="p" sx={{ mb: 0 }}>
                 F Inalicán Este 94, Malargüe, Mendoza, Argentina
