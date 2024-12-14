@@ -3,6 +3,9 @@ import { Container } from "@mui/material";
 import Home from "./views/Home.jsx";
 import ScrollToTop from "./components/scrollToTop.jsx";
 import Register from "./views/Register.jsx";
+import Header from "./views/partials/Header.jsx";
+import Footer from "./views/partials/Footer.jsx";
+import Login from "./views/login.jsx";
 
 function App() {
   return (
@@ -13,8 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/pacientes/formulario" element={<FormPaciente />} />
-          <Route path="/direcciones/formulario" element={<FormDireccion />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Container>
       <Footer />
