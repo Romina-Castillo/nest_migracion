@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import * as session from 'express-session';
+// import * as session from 'express-session';
 import * as morgan from 'morgan';
 import { ValidationPipe } from '@nestjs/common';
 
@@ -16,6 +16,15 @@ async function conexion() {
         cookie: { secure: false },
       }),
     );
+  // Middleware para sesiones
+  // app.use(
+  //   session({
+  //     secret: 'salaymendoza', // Clave secreta para firmar las cookies de sesión
+  //     resave: false,          // Evita guardar la sesión si no hay cambios
+  //     saveUninitialized: true, // Guarda nuevas sesiones sin inicializar
+  //     cookie: { secure: false },
+  //   }),
+  // );
 
     app.enableCors({
       origin: 'http://localhost:5173', // Permite solicitudes desde el frontend

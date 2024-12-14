@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Container, Box, Typography, TextField, Button, Alert } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import { TextField, Button, Container, Typography, Box, Alert } from '@mui/material';
 
 const Register = () => {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const [errorMessage, setErrorMessage] = React.useState('');
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [errorMessage, setErrorMessage] = useState('');
 
     // Función para manejar el envío del formulario
     const onSubmit = async (data) => {
@@ -39,8 +39,8 @@ const Register = () => {
     };
 
     return (
-        <Container maxWidth="sm">
-            <Box mt={5} p={3} boxShadow={3}>
+        <Container maxWidth="lg" sx={{ mt:15, mb:15 }}>
+            <Box p={3} boxShadow={3} sx={{ maxWidth: '600px', mx: 'auto' }}>
                 <Typography variant="h4" component="h2" gutterBottom align="center">
                     Regístrate
                 </Typography>
@@ -80,17 +80,27 @@ const Register = () => {
                         />
                     </Box>
 
+                    <Box mb={2}>
+                        <TextField
+                            label="Confirmar Contraseña"
+                            type="password"
+                            fullWidth
+                            {...register('confirmar_contraseña', { required: 'Este campo es obligatorio' })}
+                            error={!!errors.confirmar_contraseña}
+                            helperText={errors.confirmar_contraseña?.message}
+                        />
+                    </Box>
+
                     <Button type="submit" variant="contained" color="primary" fullWidth>
-                        Registrar
+                        Registrarse
                     </Button>
-                </form>
 
                 <Box mt={3} textAlign="center">
                     <Typography variant="body2">
-                        ¿Ya tienes una cuenta? <a href="/">Inicia sesión aquí</a>    
-                        {/* // cambiar a /login */}
+                        ¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>
                     </Typography>
                 </Box>
+                </form>
             </Box>
         </Container>
     );

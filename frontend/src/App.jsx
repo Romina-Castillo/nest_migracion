@@ -3,12 +3,11 @@ import { Container } from "@mui/material";
 import Home from "./views/Home.jsx";
 import ScrollToTop from "./components/scrollToTop.jsx";
 import Register from "./views/Register.jsx";
-import FormPaciente from "./views/form/formPaciente.jsx";
-import FormDireccion from "./views/form/formDireccion.jsx";
 
 function App() {
   return (
     <>
+      <Header />
       <ScrollToTop />
       <Container sx={{ mt: 5 }}>
         <Routes>
@@ -18,9 +17,9 @@ function App() {
           <Route path="/direcciones/formulario" element={<FormDireccion />} />
         </Routes>
       </Container>
+      <Footer />
     </>
   );
 }
-
 
 export default App;
