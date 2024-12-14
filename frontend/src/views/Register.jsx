@@ -6,26 +6,33 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [errorMessage, setErrorMessage] = React.useState('');
 
+    // Función para manejar el envío del formulario
     const onSubmit = async (data) => {
         try {
-            const response = await fetch('http://localhost:3005/register', {
+            const response = await fetch('http://localhost:4000/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify({
+                    nombre_usuario: data.nombre_usuario,
+                    email: data.email,
+                    contraseña: data.contraseña,
+                }),
             });
 
             if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error(errorText);
+                throw new Error('Error en el registro');
             }
 
-            // Resetear el formulario
+            const responseData = await response.json();
+            console.log('Registro exitoso:', responseData);
+
+            // Resetear el formulario y redirigir al login
             reset();
             setErrorMessage('');
             alert('Registro exitoso. Redirigiendo al login...');
-            window.location.href = '/'; // Redirección al /login
+            window.location.href = '/';     // cambiar a /login
         } catch (error) {
             setErrorMessage(error.message);
         }
@@ -80,7 +87,8 @@ const Register = () => {
 
                 <Box mt={3} textAlign="center">
                     <Typography variant="body2">
-                        ¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>
+                        ¿Ya tienes una cuenta? <a href="/">Inicia sesión aquí</a>    
+                        {/* // cambiar a /login */}
                     </Typography>
                 </Box>
             </Box>

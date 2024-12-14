@@ -20,7 +20,7 @@ const FormPaciente = () => {
     useEffect(() => {
         const fetchDirecciones = async () => {
             try {
-                const response = await fetch('http://localhost:3005/direcciones');
+                const response = await fetch('http://localhost:4000/direcciones');
                 const data = await response.json();
                 setDirecciones(data);
             } catch (error) {
@@ -35,7 +35,7 @@ const FormPaciente = () => {
     // enviar datos al backend con POST
     const onSubmit = async (data) => {
         try {
-            const response = await fetch('http://localhost:3005/pacientes/agregar', {
+            const response = await fetch('http://localhost:4000/pacientes/agregar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

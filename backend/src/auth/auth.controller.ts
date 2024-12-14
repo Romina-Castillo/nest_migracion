@@ -1,4 +1,4 @@
-// para definir las rutas 
+// para definir las rutas
 
 import { Controller, Post, Body, Res, HttpStatus } from '@nestjs/common';
 import { AuthService } from './auth.service';
@@ -13,9 +13,13 @@ export class AuthController {
     async register(@Body() registerDto: RegisterDto, @Res() res: Response) {
         try {
             await this.authService.register(registerDto);
-            return res.redirect('/login');
+            // redirigir al /login después del registro exitoso
+            // return res.redirect('/');
         } catch (error) {
-            return res.status(HttpStatus.BAD_REQUEST).json({ message: error.message });
+            // Devolver un mensaje de error con un estado 400
+            return res
+                .status(HttpStatus.BAD_REQUEST)
+                .json({ message: error.message });
         }
     }
 }

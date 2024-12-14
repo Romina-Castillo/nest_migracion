@@ -1,4 +1,4 @@
-// para manejas la lógica de registro
+// para manejar la lógica de registro
 
 import { Injectable, ConflictException, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
